@@ -1,9 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DynamicsService } from "../services/dynamics.service"
+import { Component, OnInit, Inject, Input, Output, EventEmitter } from '@angular/core';
 import { swotItem } from '../model/swotItem';
 import { swotCategory } from '../model/swotCategory';
 import { swotItemCollection } from '../model/swotItemCollection';
-
 
 export interface Tile {
   color: string;
@@ -13,7 +11,7 @@ export interface Tile {
 }
 
 @Component({
-  selector: 'app-matrix',
+  //selector: 'app-matrix',
   templateUrl: './matrix.component.html',
   styleUrls: ['./matrix.component.scss']
 })
@@ -28,12 +26,32 @@ export class MatrixComponent implements OnInit {
   /**
    *
    */
-  constructor(@Inject('MyDynamicsService') private dynamicsService: DynamicsService) {
+  constructor() {
 
 
   }
 
 
+@Input()
+  set strength(message: string) {
+    while (this.strengthArray.length) {
+      this.strengthArray.pop();
+    }
+
+    let stregthItems = this.convertToItems(message);
+
+    stregthItems.forEach(i => {
+      this.strengthArray.push(i);
+    });
+
+  }
+  get strength(): string {
+    let output : string[] = [];
+    this.strengthArray.forEach(i => {
+      output.push(i.text);
+    });
+    return output.join(";;");
+  }
 
   persist(event) {
     let itemcollection: swotItemCollection[] = [];
@@ -54,44 +72,28 @@ export class MatrixComponent implements OnInit {
       itemcollection.push({ item: i, category: swotCategory.Threats });
     })
 
-    this.dynamicsService.writeSwotToDynamics(itemcollection);
   }
+
+
 
 
   ngOnInit() {
 
-    this.dynamicsService.isFormInCreate().subscribe((inCreate) => this.InCreate = inCreate);
-
-    if (!this.InCreate)
-    {
-    this.dynamicsService.readSwotFromDynamics()
-      .subscribe(dynamicsData =>
-        {
-
-
-        dynamicsData.forEach(i => {
-          switch (i.category) {
-            case swotCategory.Strength:
-              this.strengthArray.push(i.item);
-              break;
-            case swotCategory.Weakness:
-              this.weaknessArray.push(i.item);
-              break;
-            case swotCategory.Opportunity:
-              this.opportunityArray.push(i.item);
-              break;
-            case swotCategory.Threats:
-              this.treathArray.push(i.item);
-              break;
-          }
-
-        })
-      });
-
-    }
-
-
 
   }
 
+  private convertToItems(text: string): swotItem[] {
+
+    let returnValue: swotItem[] = [];
+    if (text != null) {
+      let itemsArray: string[] = text.split(";;");
+      itemsArray.forEach(x => returnValue.push({ text: x, isEditing: false }));
+    }
+    return returnValue;
+  }
+
+
+
 }
+
+

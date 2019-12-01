@@ -1,6 +1,5 @@
 import { Component, OnInit,Input,Output, EventEmitter   } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import { swotCategory } from '../model/swotCategory';
 import { swotItem } from '../model/swotItem';
 
 @Component({

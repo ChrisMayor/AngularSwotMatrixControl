@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { MatDialogModule, MatCard } from '@angular/material';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -10,13 +10,12 @@ import { MatNativeDateModule } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatrixTileComponent } from './matrix-tile/matrix-tile.component';
 import { MatIconModule } from "@angular/material/icon";
-import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http'; 
-
+import { createCustomElement } from '@angular/elements'
 
 @NgModule({
   declarations: [
-    AppComponent,
+    //AppComponent,
     MatrixComponent,
     MatrixTileComponent
   ],
@@ -38,11 +37,25 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    {provide: 'MyDynamicsService', useClass: environment.dynamicsServiceType} /* => Dynamic injection depending on the environment. */
+   
   ],
-  bootstrap: [AppComponent],
+  //bootstrap: [MatrixComponent],
   entryComponents: [
-    AppComponent
+    //AppComponent,
+    MatrixComponent
   ],
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(private injector: Injector) {
+
+  }
+
+  ngDoBootstrap() {
+    const el = createCustomElement(MatrixComponent, 
+                                 { injector: this.injector });
+    customElements.define('app-matrix', el);
+
+  }
+
+}
