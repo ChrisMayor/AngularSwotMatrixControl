@@ -15,7 +15,7 @@ import { createCustomElement } from '@angular/elements'
 
 @NgModule({
   declarations: [
-    //AppComponent,
+    AppComponent,
     MatrixComponent,
     MatrixTileComponent
   ],
