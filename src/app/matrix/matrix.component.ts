@@ -65,6 +65,16 @@ export class MatrixComponent implements OnInit {
   }
 
   @Input()
+  set tile1IsNull(isNull: boolean) {
+      this.tile1Array = [];
+  }
+  get tile1IsNull(): boolean {
+    return this.tile1Array.length == 0;
+  }
+
+
+
+  @Input()
   set tile2(message: string) {
     while (this.tile2Array.length) {
       this.tile2Array.pop();
@@ -83,6 +93,14 @@ export class MatrixComponent implements OnInit {
       output.push(i.text);
     });
     return output.join(";;");
+  }
+
+  @Input()
+  set tile2IsNull(isNull: boolean) {
+      this.tile1Array = [];
+  }
+  get tile2IsNull(): boolean {
+    return this.tile1Array.length == 0;
   }
 
   @Input()
@@ -107,6 +125,14 @@ export class MatrixComponent implements OnInit {
   }
 
   @Input()
+  set tile3IsNull(isNull: boolean) {
+      this.tile1Array = [];
+  }
+  get tile3IsNull(): boolean {
+    return this.tile1Array.length == 0;
+  }
+
+  @Input()
   set tile4(message: string) {
     while (this.tile4Array.length) {
       this.tile4Array.pop();
@@ -127,8 +153,37 @@ export class MatrixComponent implements OnInit {
     return output.join(";;");
   }
 
+  @Input()
+  set tile4IsNull(isNull: boolean) {
+      this.tile1Array = [];
+  }
+  get tile4IsNull(): boolean {
+    return this.tile1Array.length == 0;
+  }
+
   persist(event) {
-    this.dataChangedByUser.emit();
+    let itemcollection: swotItemCollection[] = [];
+
+    this.tile1Array.forEach(i => {
+      itemcollection.push({ item: i, category: swotCategory.Strength });
+    })
+
+    this.tile2Array.forEach(i => {
+      itemcollection.push({ item: i, category: swotCategory.Weakness });
+    })
+
+    this.tile3Array.forEach(i => {
+      itemcollection.push({ item: i, category: swotCategory.Opportunity });
+    })
+
+    this.tile4Array.forEach(i => {
+      itemcollection.push({ item: i, category: swotCategory.Threats });
+    })
+
+    if (this.dataChangedByUser != null)
+    {
+      this.dataChangedByUser.emit();
+    }
 
   }
 
