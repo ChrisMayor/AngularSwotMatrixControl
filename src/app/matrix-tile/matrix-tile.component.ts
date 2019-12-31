@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output, EventEmitter   } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter ,  ChangeDetectorRef  } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { swotItem } from '../model/swotItem';
 
@@ -14,7 +14,7 @@ export class MatrixTileComponent implements OnInit {
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
 
  
-  constructor() { }
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -24,24 +24,28 @@ export class MatrixTileComponent implements OnInit {
     let index = list.findIndex(x => x.text == item.text);
     list.splice(index,1);
     this.change.emit(item.text);
+    this.cd.detectChanges();
   }
 
    
   edit(item:swotItem,list: swotItem[])
   {
     item.isEditing = true;
+    this.cd.detectChanges();
   }
 
   unedit(item:swotItem,list: swotItem[])
   {
     item.isEditing = false;
     this.change.emit(item.text);
+    this.cd.detectChanges();
   }
 
   add(list: swotItem[])
   {
-    list.push({ text : "new", isEditing:false});
+    list.push({ text : "please edit text", isEditing:false});
     this.change.emit("new");
+    this.cd.detectChanges();
   }
 
   drop(event: CdkDragDrop<swotItem[]>) {
@@ -55,6 +59,7 @@ export class MatrixTileComponent implements OnInit {
                           event.currentIndex);
       }
       this.change.emit("new");
+      this.cd.detectChanges();
 }
 
 }

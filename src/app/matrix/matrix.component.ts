@@ -19,7 +19,7 @@ export interface Tile {
 export class MatrixComponent implements OnInit {
 
   InCreate: boolean = false;
-  
+
   tile1Array: swotItem[] = [];
   tile2Array: swotItem[] = [];
   tile3Array: swotItem[] = [];
@@ -43,7 +43,7 @@ export class MatrixComponent implements OnInit {
   }
 
 
-@Input()
+  @Input()
   set tile1(message: string) {
     while (this.tile1Array.length) {
       this.tile1Array.pop();
@@ -57,7 +57,7 @@ export class MatrixComponent implements OnInit {
 
   }
   get tile1(): string {
-    let output : string[] = [];
+    let output: string[] = [];
     this.tile1Array.forEach(i => {
       output.push(i.text);
     });
@@ -66,7 +66,7 @@ export class MatrixComponent implements OnInit {
 
   @Input()
   set tile1IsNull(isNull: boolean) {
-      this.tile1Array = [];
+    this.tile1Array = [];
   }
   get tile1IsNull(): boolean {
     return this.tile1Array.length == 0;
@@ -77,7 +77,7 @@ export class MatrixComponent implements OnInit {
   @Input()
   set tile2(message: string) {
     while (this.tile2Array.length) {
-      this.tile2Array.pop();
+      this.tile2Array = [];
     }
 
     let weaknessItems = this.convertToItems(message);
@@ -88,7 +88,7 @@ export class MatrixComponent implements OnInit {
 
   }
   get tile2(): string {
-    let output : string[] = [];
+    let output: string[] = [];
     this.tile2Array.forEach(i => {
       output.push(i.text);
     });
@@ -97,10 +97,10 @@ export class MatrixComponent implements OnInit {
 
   @Input()
   set tile2IsNull(isNull: boolean) {
-      this.tile1Array = [];
+    this.tile2Array = [];
   }
   get tile2IsNull(): boolean {
-    return this.tile1Array.length == 0;
+    return this.tile2Array.length == 0;
   }
 
   @Input()
@@ -117,7 +117,7 @@ export class MatrixComponent implements OnInit {
 
   }
   get tile3(): string {
-    let output : string[] = [];
+    let output: string[] = [];
     this.tile3Array.forEach(i => {
       output.push(i.text);
     });
@@ -126,10 +126,10 @@ export class MatrixComponent implements OnInit {
 
   @Input()
   set tile3IsNull(isNull: boolean) {
-      this.tile1Array = [];
+    this.tile3Array = [];
   }
   get tile3IsNull(): boolean {
-    return this.tile1Array.length == 0;
+    return this.tile3Array.length == 0;
   }
 
   @Input()
@@ -146,7 +146,7 @@ export class MatrixComponent implements OnInit {
 
   }
   get tile4(): string {
-    let output : string[] = [];
+    let output: string[] = [];
     this.tile4Array.forEach(i => {
       output.push(i.text);
     });
@@ -155,10 +155,10 @@ export class MatrixComponent implements OnInit {
 
   @Input()
   set tile4IsNull(isNull: boolean) {
-      this.tile1Array = [];
+    this.tile4Array = [];
   }
   get tile4IsNull(): boolean {
-    return this.tile1Array.length == 0;
+    return this.tile4Array.length == 0;
   }
 
   persist(event) {
@@ -180,8 +180,7 @@ export class MatrixComponent implements OnInit {
       itemcollection.push({ item: i, category: swotCategory.Threats });
     })
 
-    if (this.dataChangedByUser != null)
-    {
+    if (this.dataChangedByUser != null) {
       this.dataChangedByUser.emit();
     }
 
