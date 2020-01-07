@@ -15,9 +15,63 @@ The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified I
 * Angular 8
 * Angular Elements
 
-## Screenshots
+## Getting Started
 
+### To build
 
+* Open cmd to project root
+* Run ng build --prod
+* Output is in root/dist
+
+### Open in browser
+
+* Open cmd to project root
+* Run ng serve -o
+
+## Screenshot
+
+## API
+
+### Input: Tile names
+
+tile1Name: string = "Strengths";
+tile2Name: string = "Weaknesses";
+tile3Name: string = "Opportunities";
+tile4Name: string = "Threats";
+  
+### Input: Tiles (separator= ;;)
+
+tile1
+tile2
+tile3
+tile4
+
+### Input: tile1IsNull
+
+tile1
+tile2
+tile3
+tile4
+
+## How to run / API sample
+
+### start web application in browser
+
+* clone repository
+* npm install
+* ng serve -o
+* open in browser http://localhost:4200/
+
+### Use Javascript API
+
+`const component = document.querySelector('app-matrix');
+component.tile1Name = "Market development"
+component.tile2Name = "Diversivication"
+component.tile3Name = "Market penetration"
+component.tile4Name = "Product development"
+component.tile1 = "Expand advertising;;Target more segments"
+component.tile2 = "Enter new segments;; Expand distribution"
+component.tile4 = "Strategy1;;Strategy2"`
 
 ## Disclaimer / Impressum
 
