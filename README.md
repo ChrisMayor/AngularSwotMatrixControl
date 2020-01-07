@@ -59,14 +59,16 @@ tile4
 
 * clone repository
 
-```npm install
+```
+npm install
 ng serve -o
 ```
 * open in browser http://localhost:4200/
 
 ### Use Javascript API
 
-```const component = document.querySelector('app-matrix');
+```
+const component = document.querySelector('app-matrix');
 component.tile1Name = "Market development"
 component.tile2Name = "Diversivication"
 component.tile3Name = "Market penetration"
