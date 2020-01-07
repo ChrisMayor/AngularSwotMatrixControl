@@ -9,8 +9,6 @@ Conversion of my original project https://github.com/ChrisMayor/D365SwotMatrix t
 
 This control is based on Angular 8, TypeScript and Angular Elements.
 
-The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified Interface (not compatible with classic ui!)
-
 ## Highlights
 
 * Angular 8
