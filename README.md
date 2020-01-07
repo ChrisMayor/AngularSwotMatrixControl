@@ -58,8 +58,10 @@ tile4
 ### start web application in browser
 
 * clone repository
-* npm install
-* ng serve -o
+
+```npm install
+ng serve -o
+```
 * open in browser http://localhost:4200/
 
 ### Use Javascript API
@@ -71,7 +73,8 @@ component.tile3Name = "Market penetration"
 component.tile4Name = "Product development"
 component.tile1 = "Expand advertising;;Target more segments"
 component.tile2 = "Enter new segments;; Expand distribution"
-component.tile4 = "Strategy1;;Strategy2"```
+component.tile4 = "Strategy1;;Strategy2"
+```
 
 ## Disclaimer / Impressum
 
