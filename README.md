@@ -84,6 +84,10 @@ component.tile2 = "Enter new segments;; Expand distribution"
 component.tile4 = "Strategy1;;Strategy2"
 ```
 
+<p align="center">
+  <img src="../master/Screenshots/2.JPG">
+</p>
+
 ## Disclaimer / Impressum
 
 * Published under the MIT license
