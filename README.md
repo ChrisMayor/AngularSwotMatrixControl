@@ -1,4 +1,3 @@
-<img src="https://dev.azure.com/ich0166/D365SwotMatrix/_apis/build/status/ChrisMayor.D365SwotMatrix?branchName=master"></img>
 # SWOT Analysis Control (drag and drop) based on Angular 8 Elements
 
 ## Disclaimer / Impressum
