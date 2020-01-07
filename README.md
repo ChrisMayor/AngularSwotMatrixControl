@@ -1,4 +1,23 @@
-# SWOT Analysis Control (drag and drop) based on Angular 8 Elements
+# SWOT Matrix Control (drag and drop) based on Angular 8 Elements
+
+## Description
+
+Conversion of my original project https://github.com/ChrisMayor/D365SwotMatrix to the Angular Elements
+
+2 x 2 Matrix control.
+
+This control is based on Angular 8, TypeScript and Angular Elements.
+
+The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified Interface (not compatible with classic ui!)
+
+## Highlights
+
+Angular 8
+Angular Elements
+
+## Screenshot
+
+
 
 ## Disclaimer / Impressum
 
