@@ -12,8 +12,8 @@ The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified I
 
 ## Highlights
 
-Angular 8
-Angular Elements
+* Angular 8
+* Angular Elements
 
 ## Screenshot
 
