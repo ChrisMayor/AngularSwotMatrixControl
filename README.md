@@ -32,13 +32,15 @@ The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified I
 
 ## API
 
-### Input: Tile names
+### Input: Tile names : string
 
+````
 tile1Name: string = "Strengths";
 tile2Name: string = "Weaknesses";
 tile3Name: string = "Opportunities";
 tile4Name: string = "Threats";
-  
+````
+
 ### Input: Tiles (separator= ;;) : string
 ````
 tile1
