@@ -31,7 +31,7 @@ The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified I
 ## Screenshot
 
 <p align="center">
-  <img src="../master/Screenshots/1.JPG">
+  <img src="../master/Screenshots/1a.JPG">
 </p>
 
 ## API
@@ -70,6 +70,10 @@ npm install
 ng serve -o
 ```
 * open in browser http://localhost:4200/
+
+<p align="center">
+  <img src="../master/Screenshots/1.JPG">
+</p>
 
 ### Use Javascript API
 
