@@ -39,20 +39,20 @@ tile2Name: string = "Weaknesses";
 tile3Name: string = "Opportunities";
 tile4Name: string = "Threats";
   
-### Input: Tiles (separator= ;;)
-
+### Input: Tiles (separator= ;;) : string
+````
 tile1
 tile2
 tile3
 tile4
-
-### Input: tile1IsNull
-
+````
+### Input: tilexIsNull : boolean
+````
 tile1
 tile2
 tile3
 tile4
-
+````
 ## How to run / API sample
 
 ### start web application in browser
