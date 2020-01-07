@@ -64,14 +64,14 @@ tile4
 
 ### Use Javascript API
 
-`const component = document.querySelector('app-matrix');
+```const component = document.querySelector('app-matrix');
 component.tile1Name = "Market development"
 component.tile2Name = "Diversivication"
 component.tile3Name = "Market penetration"
 component.tile4Name = "Product development"
 component.tile1 = "Expand advertising;;Target more segments"
 component.tile2 = "Enter new segments;; Expand distribution"
-component.tile4 = "Strategy1;;Strategy2"`
+component.tile4 = "Strategy1;;Strategy2"```
 
 ## Disclaimer / Impressum
 
