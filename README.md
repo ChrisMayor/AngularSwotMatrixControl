@@ -1,126 +1,84 @@
-<img src="https://dev.azure.com/ich0166/D365SwotMatrix/_apis/build/status/ChrisMayor.D365SwotMatrix?branchName=master"></img>
-# SWOT Analysis Control (drag and drop) for Dynamics 365 (9.x or 8.2)
+# SWOT Matrix Control (drag and drop) based on Angular 8 Elements
 
 ## Description
 
-The SWOT Analysis Control for Dynamics 365 (8.2 or 9.x), can be added as a web resource to the account, opportunity or your custom entity form.
+Conversion of my original project https://github.com/ChrisMayor/D365SwotMatrix to the Angular Elements
 
-The SWOT Analysis helps the sales people / the organisation to identify the
+2 x 2 Matrix control.
 
-* Stenghts (internal)
-* Weaknesses (internal)
-* Opportunities (external)
-* Threads (external)
+This control is based on Angular 8, TypeScript and Angular Elements.
 
-related to business competition to win an opportunity or customer.
-
-For general usage see https://en.wikipedia.org/wiki/SWOT_analysis
-
-This control is based on Angular 7, Webpack 4, Angular Material, Angular CDK and Rxjs and communicates with the Dynamics Web Api.
-
-Realizes the Idea to include an custom Angular 7 Control in Dynamics 365 as Webresource and usage of the Dynamics 365 WebApi with Rxjs.
-
-Proves that the production build gets super small (currently around ~500kb), even with Angular and Angular Material.
-
-This project was generated with Angular CLI version 7.2.0.
+The Matrix can be bound to 4 single line text controls in Dynamics 365 Unified Interface (not compatible with classic ui!)
 
 ## Highlights
 
-* Angular 8.x
-* Angular Material
-* Angular CDK
-* Drag and Drop
-* Webpack 4.x
-* Usage of Rxjs for WebApi communication
-* Works in Classic UI and Unified Interface
-* Works in Dynamics 9.x
-* Scales to different screen resolutions
-* Non-Production build runs locally without Dynamics Integration - a console logger is injected as service instead
-* Only ~500kb production build size
+* Angular 8
+* Angular Elements
 
-## Web demo
+## Getting Started
 
-<a href ="https://chrismayor.github.io/D365SwotMatrixDemo/index.html">Demo</a>
+### To build
 
-Note: Web demo is still on Angular 7 - Update to current version in work
+* Open cmd to project root
+* Run ng build --prod
+* Output is in root/dist
 
-## Minimum requirements:
+### Open in browser
 
-* Tested on Dynamics 365 with Web Api Integration (online v9.0/v9.1) - not tested on 8.x but should also work there.
-* Works on classic ui and unified interface - suggested usage is on unified interface ui, caused by the limited space on the classic ui form and that you may have to care about the refresh of the web resource after creating the record (see hint below how to do this)
+* Open cmd to project root
+* Run ng serve -o
 
-## Releases for download as managed solution
+## Screenshot
 
-### V1.0 Solutions for Account and Opportunity Form (Dynamics 9.x)
+## API
 
-<a href="../master/managedSolutions/SWOTMatrixforAccount_1_0_0_0.zip">SWOT Analysis for account form (unmanaged)</a><br/>
-<a href="../master/managedSolutions/SWOTMatrixforAccount_1_0_0_0_managed.zip">SWOT Analysis for account form (managed)</a><br/>
-<a href="../master/managedSolutions/SWOTMatrixforOpportunity_1_0_0_0.zip">SWOT Analysis for opportunity form (unmanaged)</a><br/>
-<a href="../master/managedSolutions/SWOTMatrixforOpportunity_1_0_0_0_managed.zip">SWOT Analysis for opportunity form (managed)</a><br/>
+### Input: Tile names : string
 
-<a href="../master/managedSolutions/quickinstall_guide.pdf">Installation guide</a>
+````
+tile1Name: string = "Strengths";
+tile2Name: string = "Weaknesses";
+tile3Name: string = "Opportunities";
+tile4Name: string = "Threats";
+````
 
-You may use the unmanaged solution to add the SWOT Analysis to your custom entity form. In this case you need the following fields on the custom entity:
+### Input: Tiles (separator= ;;) : string
+````
+tile1
+tile2
+tile3
+tile4
+````
+### Input: tilexIsNull : boolean
+````
+tile1
+tile2
+tile3
+tile4
+````
+## How to run / API sample
 
-* mey_swot_strengths (Multiline text 2000)
-* mey_swot_weaknesses (Multiline text 2000)
-* mey_swot_opportunities (Multiline text 2000)
-* mey_swot_threats (Multiline text 2000)
+### start web application in browser
 
-Note: Solutions are still on Angular 7 - Update to current version in work
+* clone repository
 
-## Screenshots Unified Interface
-
-<p align="center">
-  <img src="../master/Screenshots/empty-unified.JPG" title="empty matrix / unified interface">
-    <img src="../master/Screenshots/filled-unified.JPG" title="filled matrix / unified interface">
-</p>
-
-## Screenshots Classic Interface
-
-<p align="center">
-  <img src="../master/Screenshots/filled-classic.JPG" title="filled matrix / classic interface">
-</p>
-
-## Demo
-
-<p align="center">
-  <img src="../master/Screenshots/Demo.gif" title="Demo">
-</p>
-
-## Build / start locally
-
-To build / start locally
-
-* Run: ng serve -o
-* Build: ng build --configuration=production
-
-## To do's
-
-Some open points for future versions:
-
-* Unit testing
-* Configuration of the matrix with a separate configuration entity
-* Some UI enhancements / Design improvements
-* Icons are currently integrated via Googles CDN - maybe needs to be replaced if this is not suiteable for your implementation
-* Get the labels from Dynamics Metadata Service to allow translations
-* Wrap the Angular App in a Power App Custom Control (PCF) - Render the html and integrate the contents
-
-## Missing post create refresh of the web resource on the classic ui
-
-* On the classic UI you my have to refresh the web resource after create event:
-
-Poll for the id / Refresh the Id in the webresource
-
-```// Poll for id on create ...
-var webResourceControl = Xrm.Page.getControl("WebResource_swotmatrix");
-var src = webResourceControl.getSrc();
-webResourceControl.setSrc(null);
-// ... Manipulate the src to include the id ...
-webResourceControl.setSrc(src);
 ```
+npm install
+ng serve -o
+```
+* open in browser http://localhost:4200/
 
-In the unified interface Dynamics refreshes the web resource automatically after the record is created.
+### Use Javascript API
+
+```
+const component = document.querySelector('app-matrix');
+component.tile1Name = "Market development"
+component.tile2Name = "Diversivication"
+component.tile3Name = "Market penetration"
+component.tile4Name = "Product development"
+component.tile1 = "Expand advertising;;Target more segments"
+component.tile2 = "Enter new segments;; Expand distribution"
+component.tile4 = "Strategy1;;Strategy2"
+```
 
 ## Disclaimer / Impressum
 
