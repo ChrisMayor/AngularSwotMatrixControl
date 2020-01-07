@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/ich0166/AngularSwotMatrixControl/_apis/build/status/ChrisMayor.AngularSwotMatrixControl?branchName=master)](https://dev.azure.com/ich0166/AngularSwotMatrixControl/_build/latest?definitionId=8&branchName=master)
 # SWOT Matrix Control (drag and drop) based on Angular 8 Elements
 
 ## Description
