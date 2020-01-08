@@ -53,10 +53,10 @@ tile4
 ````
 ### Input: tilexIsNull : boolean
 ````
-tile1
-tile2
-tile3
-tile4
+tile1IsNull
+tile2IsNull
+tile3IsNull
+tile4IsNull
 ````
 ## How to run / API sample
 
