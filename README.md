@@ -74,7 +74,7 @@ ng serve -o
   <img src="../master/Screenshots/1.JPG">
 </p>
 
-### Use Javascript API
+### Sample: Use the Javascript API to transform the Swot Matrix to an Ansoff-Matrix
 
 ```
 const component = document.querySelector('app-matrix');
