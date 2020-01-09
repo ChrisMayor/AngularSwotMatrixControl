@@ -19,14 +19,17 @@ This control is based on Angular 8, TypeScript and Angular Elements.
 ### To build
 
 * Open cmd to project root
-* Run ng build --prod
+````
+Run ng build --prod
+````
 * Output is in root/dist
 
 ### Open in browser
 
 * Open cmd to project root
-* Run ng serve -o
-
+````
+Run ng serve -o
+````
 ## Screenshot
 
 <p align="center">
