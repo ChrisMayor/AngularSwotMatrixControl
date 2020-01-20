@@ -5,7 +5,7 @@
 
 Conversion of my original project https://github.com/ChrisMayor/D365SwotMatrix to the Angular Elements
 
-Custom 2 x 2 Matrix control which can be used in any web application (react, jquery, vue, plan js).
+Custom 2 x 2 Matrix control which can be used in any web application (react, jquery, vue, plain js).
 
 This control is based on Angular 8, TypeScript and Angular Elements.
 
